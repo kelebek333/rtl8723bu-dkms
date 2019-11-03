@@ -6,29 +6,48 @@ This is a driver for the wireless part **only**
 
 <u>If one USB-ID is missing, please mail me.</u>  
 
-build/load/function tested with v4.19  
+build/load tested with v5.0.x ~ v5.3.x 
 
-Building and install driver
----------------------------
+## How to install
 
-for building type  
-`make`  
+`sudo apt-get install build-essential git dkms linux-headers-$(uname -r)`
 
-for load the driver  
-`sudo modprobe cfg80211`  
-`sudo insmod rtl8723bu.ko`  
+`git clone https://github.com/kelebek333/rtl8723bu-dkms`
 
-You need to install the needed fw with  
-`sudo make installfw`  
+`sudo dkms add ./rtl8723bu-dkms`
 
-If you need to crosscompile use  
-`ARCH= CROSS_COMPILE= KSRC=`  
-while calling `make` i.e.  
+`sudo dkms build rtl8723bu/4.4.5`
 
-`make ARCH="arm" CROSS_COMPILE=armv5tel-softfloat-linux-gnueabi- KSRC=/home/linux-master modules`  
+`sudo dkms install rtl8723bu/4.4.5`
 
-Please use prefix **rtl8723bu** if you want to mail me  
-But please please don't, I have enough to do.  
-TIA  
+`sudo cp ./rtl8723bu-dkms/firmware/rtl8723bu_nic.bin /lib/firmware/rtlwifi/`
 
-Hans Ulli Kroll <ulli.kroll@googlemail.com>
+`sudo cp ./rtl8723bu-dkms/blacklist-rtl8xxxu.conf /etc/modprobe.d/`
+
+`sudo cp ./rtl8723bu-dkms/r8723bu-pm.conf /etc/modprobe.d/`
+
+
+## How to uninstall
+
+`sudo dkms remove rtl8723bu/4.4.5 --all`
+
+`sudo rm -f /etc/modprobe.d/blacklist-rtl8xxxu.conf`
+
+`sudo rm -f /etc/modprobe.d/r8723bu-pm.conf`
+
+
+## How to install with PPA repository
+
+You can install rtl8723bu driver with following commands from PPA. Supported xUbuntu 16.04~19.10 / Linux Mint 18.x~19.x series. r8723bu-dkms package is autoinstall files of blacklist, power management configuration and firmware.
+
+`sudo add-apt-repository ppa:kelebek333/kablosuz`
+
+`sudo apt-get update`
+
+`sudo apt install r8723bu-dkms`
+
+
+You can purge packages with following commands
+
+`sudo apt purge r8723bu-dkms`
+
