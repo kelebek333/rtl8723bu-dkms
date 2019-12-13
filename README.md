@@ -38,7 +38,7 @@ build/load tested with v5.0.x ~ v5.3.x
 
 ## How to install with PPA repository
 
-You can install rtl8723bu driver with following commands from PPA. Supported xUbuntu 16.04~19.10 / Linux Mint 18.x~19.x series. r8723bu-dkms package is autoinstall files of blacklist, power management configuration and firmware.
+You can install rtl8723bu driver with following commands from PPA. Supported xUbuntu 16.04 ~ 19.10 / Linux Mint 18.x ~ 19.x series. r8723bu-dkms package is autoinstall files of blacklist, power management configuration and firmware.
 
 `sudo add-apt-repository ppa:kelebek333/kablosuz`
 
