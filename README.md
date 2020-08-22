@@ -6,7 +6,7 @@ This is a driver for the wireless part **only**
 
 <u>If one USB-ID is missing, please mail me.</u>  
 
-build/load tested with v5.0.x ~ v5.3.x 
+build/load tested with v5.0.x ~ v5.8.x 
 
 ## How to install
 
